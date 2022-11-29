@@ -18,6 +18,10 @@ Table 1. The different types of USGS field measurements methods.
 | VADV    | 373597    | VIPAA  | 955       | VTIME  | 16        |
 | VPAA    | 104457    | VICE   | 431       | VOPT   | 1         |
 
+<p align="center">
+  <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/excluded_sites.jpg">
+  Figure 1. Locations of 31 site stations of HYDRoSWOT which are not included in TAURAAT.
+</p>
 
 TAURAAT is publicly availble in 
 [Google Drive](https://drive.google.com/file/d/1DhKbouaWy1t3VQ4BzWvyX0KIpaemFdW7/view?usp=sharing).
