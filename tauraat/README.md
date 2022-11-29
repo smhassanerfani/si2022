@@ -5,7 +5,16 @@ TAURAAT can be considered as an updated version of
 – HYDRoacoustic dataset in support of Surface Water Oceanographic Topography. 
 TAURAAT includes 10050 site stations (out of 10081 sites represented by HYDRoSWOT), 
 and aggregates channel and flow data collected from the USGS stream gaging station (Surface-water: Field measurements)
-network and includes 2,802,532 records of all different types of USGS field measurements instruments. 
+network and includes 2,802,532 records of all different types of USGS field measurements methods. 
+
+Table 1. The different types of USGS field measurements methods.
+
+| Method  | Frequency | Method | Frequency | Method | Frequency |
+|---------|-----------|--------|-----------|--------|-----------|
+| Unknown | 1466349   | VELC   | 17984     | VIPYG  | 265       |
+| VADCP   | 452725    | VPYG   | 17304     | VOTT   | 26        |
+| VADV    | 373597    | VIPAA  | 955       | VTIME  | 16        |
+| VPAA    | 104457    | VICE   | 431       | VOPT   | 1         |
 
 TAURAAT is publicly availble in 
 [Google Drive](https://drive.google.com/file/d/1DhKbouaWy1t3VQ4BzWvyX0KIpaemFdW7/view?usp=sharing).
