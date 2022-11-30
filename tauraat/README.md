@@ -1,12 +1,15 @@
 # TAURAAT: The Attribute table of USGS (Surface-water: Field measurements) for Rivers And Associated Tributaries
 
+## Dataset Description
+
 TAURAAT can be considered as an updated version of 
 [HYDRoSWOT](https://www.sciencebase.gov/catalog/item/57435ae5e4b07e28b660af55) 
 – HYDRoacoustic dataset in support of Surface Water Oceanographic Topography. 
 TAURAAT includes 10050 site stations (out of 10081 sites represented by HYDRoSWOT), 
-and aggregates channel geometry and characteristics of stream flow collected from the USGS stream gaging station 
-(Surface-water: Field measurements) network and includes 2,802,532 records of all different types of USGS field
-measurements methods (Table 1). The time span of the records starts from `1845-05-05 14:00:00` to `2022-10-24 12:58:01`.
+and represents five important channel geometry and characteristics of stream flow (i.e., streamflow, stage, channel 
+width, channel area, and channel velocity) collected from the USGS stream gaging station (Surface-water: Field 
+measurements) network and includes 2,802,532 records of all different types of USGS field measurements methods
+(Table 1). The time span of the records starts from `1845-05-05 14:00:00` to `2022-10-24 12:58:01`.
 
 Table 1. The different types of USGS field measurements methods.
 
@@ -23,9 +26,54 @@ of other 14 stations are not available in USGS website anymore. Figure 1 shows t
 sites on the map.
 
 <p align="center">
-  <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/excluded_sites.jpg">
-  Figure 1. Locations of 31 site stations of HYDRoSWOT which are not included in TAURAAT.
+    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/excluded_sites.jpg">
+    Figure 1. Locations of 31 site stations of HYDRoSWOT which are not included in TAURAAT.
 </p>
+
+## Dataset Analysis
+After removing zero and missing values of three important columns including `discharge_va`, `gage_height_va`, and
+`chan_width` that represent streamflow, river stage and channel width, respectively, 2,312,896 records remain.
+Moreover, to conduct significant statistics, sites with more than 50 observations are selected from valid records
+(out of no zero/missing records). Eventually, 2,279,530 observations (represented by 7,446 sites) are
+considered for following analyses. 
+
+### Sites with Positive Discharge
+2,199,163 observations (represented by 7,098 sites) include only positive values for discharge. The river stage verses
+discharge plot for some sample sites are as follows:
+
+<p align="center">
+    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/tau_pos_dis.png">
+    Figure 2. Site locations including only positive values for discharge.
+</p>
+
+### Sites with Negative Discharge
+80,367 observations (represented by 348 sites) include both negative and positive values for discharge. The river stage
+verses discharge plot for some sample sites are as follows:
+
+<p align="center">
+    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/tau_neg_dis_v2.png">
+    Figure 3. Site locations including both negative and positive values for discharge.
+</p>
+
+These sites are generally located near the costal area or control points. We will omit these site locations from all 
+following analyses.
+
+<p align="center">
+    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/neg_dis.jpg">
+    Figure 4. Location of sites that includes both negative and positive values for discharge.
+</p>
+
+
+<p align="center">
+    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/tau_neg_dis_v1.png">
+    Figure 5. 
+</p>
+
+According to the definition:
+"In the case of rivers with floodplains, river stage tends to increase rapidly with increasing water discharge when all
+the flow is confined to the channel, but much less rapidly when the flow spills significantly onto the floodplain. The 
+rollover (i.e., sudden change of slope) in the curve defines bankfull discharge" 
+[Gary Parker, Morphodynamics e-book](http://hydrolab.illinois.edu/people/parkerg/powerpoint_lectures.htm).
 
 TAURAAT is publicly availble in 
 [Google Drive](https://drive.google.com/file/d/1DhKbouaWy1t3VQ4BzWvyX0KIpaemFdW7/view?usp=sharing).
