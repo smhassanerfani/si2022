@@ -55,19 +55,22 @@ verses discharge plot for some sample sites are as follows:
     Figure 3. Site locations including both negative and positive values for discharge.
 </p>
 
+Among sites having negative discharge in their records, there are still some cases that the relation between stage and
+discharge is more like sites with positive discharge.
+
+<p align="center">
+    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/tau_neg_dis_v1.png">
+    Figure 4. Site with negative/positive discharge that follow the behavior of sites with only positive discharge.
+</p>
+
 These sites are generally located near the costal area or control points. We will omit these site locations from all 
 following analyses.
 
 <p align="center">
     <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/neg_dis.jpg">
-    Figure 4. Location of sites that includes both negative and positive values for discharge.
+    Figure 5. Location of sites that includes both negative and positive values for discharge.
 </p>
 
-
-<p align="center">
-    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/tau_neg_dis_v1.png">
-    Figure 5. 
-</p>
 
 According to the definition:
 "In the case of rivers with floodplains, river stage tends to increase rapidly with increasing water discharge when all
