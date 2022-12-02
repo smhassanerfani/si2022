@@ -92,7 +92,7 @@ site station. So, two values (i.e., mean and std) can represent all of those obs
 way, all observations of a site can be summarized in one record. 
 
 ### Discharge Distribution 
-The histogram of discharge observations for 8 site stations which were randomly selected are shown in the Figure 6. 
+The histogram of discharge observations for 16 site stations which were randomly selected is shown in the Figure 6. 
 
 <p align="center">
     <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/tau_discharge_dist.png">
@@ -107,19 +107,25 @@ of the site stations.
 
 <p align="center">
     <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/dist_freq_discharge.png">
-    Figure 7.
+    Figure 7. The frequency of best fitted distribution for channel discharge.
 </p>
 
 ### Width Distribution 
-Same statistical analysis was done for channel width. The histogram of discharge observations for 8 
+The same statistical analysis was done for channel width. The histogram of channel width observations for 16 different
+site stations is shown in Figure 8. Compared with channel discharge, channel width distribution of different site 
+stations does not follow same pattern. In some cases (indicated by red squares), channel width distributions have more
+than one peak.
+
 <p align="center">
     <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/tau_width_dist.png">
     Figure 8.
 </p>
 
+The frequency of best fitted distribution for channel width is shown in the Figure 9.  This figure shows `cauchy` is
+the best fit for around 4000 of the site stations. 
 <p align="center">
     <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/dist_freq_width.png">
-    Figure 9.
+    Figure 9. The frequency of best fitted distribution for channel width.
 </p>
 
 
