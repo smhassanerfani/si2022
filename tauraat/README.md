@@ -6,7 +6,7 @@ TAURAAT can be considered as an updated version of
 [HYDRoSWOT](https://www.sciencebase.gov/catalog/item/57435ae5e4b07e28b660af55) 
 – HYDRoacoustic dataset in support of Surface Water Oceanographic Topography. 
 TAURAAT includes 10050 site stations (out of 10081 sites represented by HYDRoSWOT), 
-and represents five important channel geometry and characteristics of stream flow (i.e., streamflow, stage, channel 
+and represents five important channel geometry and characteristics of streamflow (i.e., streamflow, stage, channel 
 width, channel area, and channel velocity) collected from the USGS stream gaging station (Surface-water: Field 
 measurements) network and includes 2,802,532 records of all different types of USGS field measurements methods
 (Table 1). The time span of the records starts from `1845-05-05 14:00:00` to `2022-10-24 12:58:01`.
@@ -96,7 +96,7 @@ The histogram of discharge observations for 16 site stations which were randomly
 
 <p align="center">
     <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/tau_discharge_dist.png">
-    Figure 6. The histogram of discharge observations for different site stations.
+    Figure 6. The histogram of channel discharge observations for different site stations.
 </p>
 
 Ten most common distributions 
@@ -112,22 +112,31 @@ of the site stations.
 
 ### Width Distribution 
 The same statistical analysis was done for channel width. The histogram of channel width observations for 16 different
-site stations is shown in Figure 8. Compared with channel discharge, channel width distribution of different site 
+site stations is shown in Figure 8. In comparison with channel discharge, channel width distribution of different site 
 stations does not follow same pattern. In some cases (indicated by red squares), channel width distributions have more
 than one peak.
 
 <p align="center">
     <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/tau_width_dist.png">
-    Figure 8.
+    Figure 8. The histogram of channel width observations for different site stations.
 </p>
 
 The frequency of best fitted distribution for channel width is shown in the Figure 9.  This figure shows `cauchy` is
-the best fit for around 4000 of the site stations. 
+the best fit for about 4,000 site stations. 
 <p align="center">
     <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/dist_freq_width.png">
     Figure 9. The frequency of best fitted distribution for channel width.
 </p>
 
+#### What Can Cause Such Multi-modal Distribution?
+Firs it should be mentioned that this type of distribution indicates that there are more than one group in the data.
+Thus, each distribution group can represent a specific hydrologic phenomenon:
+
+- Changing characteristics of streamflow over time (seasonality or chronologically).
+- Bankfull and overbank flow states.
+- Changing geometry over time (naturally or artificially).
+- Changing measurement locations in the field.
+- Measuring channel geometry and characteristics of streamflow for tributaries, instead of the main channel.  
 
 
 
