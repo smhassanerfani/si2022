@@ -87,8 +87,9 @@ is not always an easy task.
 Here, instead of selecting one observation to represent the channel in a specific state (e.g., bankfull), the best 
 fitted distribution to the important properties of the channel (discharge, stage and width) are calculated. 
 Thus, each site station is represented by the best fitted distribution parameters associated with channel geometry of
-that site. Let’s assume normal distribution is the best fit for both width and discharge of a site station. So, two 
-values (i.e., mean and std) represent the width and two others represent discharge.  
+that site. Let’s assume normal distribution is the best fit for the whole observations of discharge in a hypothetical
+site station. So, two values (i.e., mean and std) can represent all of those observations for discharge. Through this
+way, all observations of a site can be summarize in one record. 
 
 ### Discharge Distribution 
 
@@ -103,6 +104,7 @@ values (i.e., mean and std) represent the width and two others represent dischar
     Figure 7.
 </p>
 
+### Width Distribution 
 
 <p align="center">
     <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/tau_width_dist.png">
