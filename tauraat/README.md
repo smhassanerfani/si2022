@@ -89,15 +89,21 @@ fitted distribution to the important properties of the channel (discharge, stage
 Thus, each site station is represented by the best fitted distribution parameters associated with channel geometry of
 that site. Let’s assume normal distribution is the best fit for the whole observations of discharge in a hypothetical
 site station. So, two values (i.e., mean and std) can represent all of those observations for discharge. Through this
-way, all observations of a site can be summarize in one record. 
+way, all observations of a site can be summarized in one record. 
 
 ### Discharge Distribution 
+The histogram of discharge observations for 8 site stations which were randomly selected are shown in the Figure 6. 
 
 <p align="center">
     <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/tau_discharge_dist.png">
-    Figure 6.
+    Figure 6. The histogram of discharge observations for different site stations.
 </p>
 
+Ten most common distributions 
+(i.e., `cauchy`, `chi2`, `expon`, `exponpow`, `gamma`, `lognorm`, `norm`, `powerlaw`, `rayleigh`, `uniform`)
+were fitted to discharge observations of 7,098 sites (including only positive values for discharge). The frequency 
+of best fitted distribution is shown in the Figure 7. This figure shows `lognorm` is the best fit for more than 50%
+of the site stations.  
 
 <p align="center">
     <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/dist_freq_discharge.png">
@@ -105,7 +111,7 @@ way, all observations of a site can be summarize in one record.
 </p>
 
 ### Width Distribution 
-
+Same statistical analysis was done for channel width. The histogram of discharge observations for 8 
 <p align="center">
     <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/tau_width_dist.png">
     Figure 8.
