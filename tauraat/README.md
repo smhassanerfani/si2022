@@ -143,10 +143,13 @@ The site stations having multi-modal distributions are discussed in the followin
 #### USGS 11447903 GEORGIANA SLOUGH NR SACRAMENTO R
 Figure 10 approves two peaks in channel width distribution for the case of USGS site number 11447903.
 
-<p align="center">
-    <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/11447903_hist.png">
-    Figure 10. Bi-modal distribution of Channel width.
-</p>
+<figure align="center">
+    <img src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/11447903_hist.png?raw=true" 
+    alt="Bi-modal distribution of Channel width" width="100%" height="100%">
+    <figcaption align="center">
+        Figure 10. Bi-modal distribution of Channel width.
+    </figcaption>
+</figure>
 
 Variation of measured width for the existing field observations can be a result of changing location of measurement.
 TAURAAT includes a feature column, `chan_name`, indicating the locations where the measurements were done. In the case
@@ -156,10 +159,13 @@ width for each group is shown in Figure 11. It seems `channel 2` and `channel 3`
 as the values of channel width are in the same range for both group. However, the range of values for the first channel
 implies existing tributary or two different locations for doing filed measurements.
 
-<p align="center">
-    <img width="70%" height="70%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/11447903_boxplot.png">
-    Figure 11. The variation of channel width as a result of changing measurement locations.
-</p>
+<figure align="center">
+    <img src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/11447903_boxplot.png?raw=true" 
+    alt="" style="width:70%">
+    <figcaption align="center">
+        Figure 11. The variation of channel width as a result of changing measurement locations.
+    </figcaption>
+</figure>
 
 
 TAURAAT is publicly availble in 
