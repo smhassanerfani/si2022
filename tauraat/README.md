@@ -159,13 +159,36 @@ width for each group is shown in Figure 11. It seems `channel 2` and `channel 3`
 as the values of channel width are in the same range for both group. However, the range of values for the first channel
 implies existing tributary or two different locations for doing filed measurements.
 
-<figure align="center">
-    <img src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/11447903_boxplot.png?raw=true" 
-    alt="" style="width:70%">
-    <figcaption align="center">
-        Figure 11. The variation of channel width as a result of changing measurement locations.
-    </figcaption>
-</figure>
+<p align = "center">
+    <img src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/11447903_boxplot.png?raw=true"
+    alt="" width="70%">
+</p>
+<p align = "center">
+    Figure 11. The variation of channel width as a result of changing measurement locations.
+</p>
+
+In order to evaluate the channel width variation over time, width values were plotted according to the date of the 
+measurement (Figure 12). This figure indicate the channel geometry might be changed over time.
+
+<p align = "center">
+    <img src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/11447903_scat.png?raw=true"
+    alt="" width="100%">
+</p>
+<p align = "center">
+    Figure 12. The variation of channel width over time.
+</p>
+
+In order to systematically differentiate between two different groups of channel width, three different clustering
+methods including `KMeans`, `DBSCAN`, and `AgglomerativeClustering` were implemented on the measured width. The result 
+of K-Means is shown in Figure 12.
+
+<p align = "center">
+    <img src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/11447903_kmeans.png?raw=true"
+    alt="" width="100%">
+</p>
+<p align = "center">
+    Figure 12. The results of KMeans clustering (number of cluster=2).
+</p>
 
 
 TAURAAT is publicly availble in 
