@@ -136,7 +136,7 @@ Firs it should be mentioned that this type of distribution indicates that there 
 Thus, each distribution group can represent a specific hydrologic phenomenon:
 
 - Changing characteristics of streamflow over time (seasonality or chronologically).
-- Bankfull and overbank flow states.
+- Active-channel, bankfull and overbank flow stages.
 - Changing geometry over time (naturally or artificially).
 - Changing measurement locations in the field.
 - Measuring channel geometry and characteristics of streamflow for tributaries, instead of the main channel.  
@@ -171,7 +171,7 @@ implies existing tributary or two different locations for doing filed measuremen
 </p>
 
 In order to evaluate the channel width variation over time, width values were plotted according to the date of the 
-measurement (Figure 12). This figure indicate the channel geometry might be changed over time.
+measurement (Figure 12). This figure indicates the channel geometry might be changed over time.
 
 <p align = "center">
     <img src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/11447903_scat.png?raw=true"
@@ -206,8 +206,10 @@ different representations of the same data as you change the number of bins to p
     Figure 13. Bi-modal distribution and experimental CDF for Channel width.
 </p>
 
-The variation of channel width over time and the results of DBSCAN on the width values are shown in Figure 14.
-Such a model `DBSCAN(eps=5, min_samples=20)` instantiated and the results are as follows:
+The variation of channel width over time and the results of DBSCAN on the width values are shown in Figure 14. Width
+measurements are generally dominated around two different values over time. This shows measurements might be done in
+two different locations over time, or in two different streamflow stages (e.g., active-channel, bankfull, overbank). 
+DBSCAN model is instantiated with `DBSCAN(eps=5, min_samples=20)` and the results are as follows:
 
 <p align = "center">
     <img src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/05425500_dbscan.png?raw=true"
