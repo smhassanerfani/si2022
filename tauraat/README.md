@@ -30,6 +30,9 @@ sites on the map.
     Figure 1. Locations of 31 site stations of HYDRoSWOT which are not included in TAURAAT.
 </p>
 
+TAURAAT is publicly availble in
+[Google Drive](https://drive.google.com/file/d/1DhKbouaWy1t3VQ4BzWvyX0KIpaemFdW7/view?usp=sharing).
+
 ## Dataset Analysis
 After removing zero and missing values of three important columns including `discharge_va`, `gage_height_va`, and
 `chan_width` that represent streamflow, river stage and channel width, respectively, 2,312,896 records remain.
@@ -190,6 +193,27 @@ of K-Means is shown in Figure 12.
     Figure 12. The results of KMeans clustering (number of cluster=2).
 </p>
 
+#### USGS 05425500 ROCK RIVER AT WATERTOWN, WI
+Figure 13 shows histogram, Experimental Cumulative Distribution Function (ECDF), and box plot for channel width of USGS
+site number 05425500. ECDF is used to show there is no "Binning Bias," a pitfall of histogram, where you will get
+different representations of the same data as you change the number of bins to plot.
 
-TAURAAT is publicly availble in 
-[Google Drive](https://drive.google.com/file/d/1DhKbouaWy1t3VQ4BzWvyX0KIpaemFdW7/view?usp=sharing).
+<p align = "center">
+    <img src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/05425500_hist.png?raw=true"
+    alt="" width="100%">
+</p>
+<p align = "center">
+    Figure 13. Bi-modal distribution and experimental CDF for Channel width.
+</p>
+
+The variation of channel width over time and the results of DBSCAN on the width values are shown in Figure 14.
+Such a model `DBSCAN(eps=5, min_samples=20)` instantiated and the results are as follows:
+
+<p align = "center">
+    <img src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/05425500_dbscan.png?raw=true"
+    alt="" width="100%">
+</p>
+<p align = "center">
+    Figure 14. The results of DBSCAN clustering (number of cluster=2, green dots are considered as noisy samples).
+</p>
+
