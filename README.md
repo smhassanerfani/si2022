@@ -15,7 +15,7 @@ This GitHub tires to represent the outcomes of the `ERROR 404`, the second group
 
 <p align = "center">
     <img src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/03599500_ecdf.png?raw=true"
-    alt="" width="80%">
+    alt="" width="100%">
 </p>
 <p align = "center">
     Figure 1. Histogram and ECDF for Channel Width and Discharge.
