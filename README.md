@@ -10,7 +10,7 @@ This GitHub tires to represent the outcomes of the `ERROR 404`, the second group
 "Hydroinformatics, including machine learning, for water prediction and analysis."
 
 <p align = "center">
-    <img src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/agu2022.svg?raw=true"
+    <img src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/cuahsi.png?raw=true"
     alt="" width="100%">
 </p>
 <p align = "center">
