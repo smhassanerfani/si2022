@@ -9,8 +9,15 @@ professionals"
 This GitHub tires to represent the outcomes of the `ERROR 404`, the second group of the theme of
 "Hydroinformatics, including machine learning, for water prediction and analysis."
 
-## Joint Probability Distribution
+<p align = "center">
+    <img src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/cuahsi.png?raw=true"
+    alt="" width="100%">
+</p>
+<p align = "center">
+    The poster for AGU Fall Meeting 2022, Chicago, IL and online everywhere 12-16 December 2022.
+</p>
 
+## Joint Probability Distribution
 ### USGS 03599500 DUCK RIVER AT COLUMBIA, TN
 
 <p align = "center">
