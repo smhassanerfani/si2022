@@ -16,24 +16,31 @@ def scatter_plot(y_test, y_pred, model_name=None):
         'font.family': 'serif'
     })
 
-    fig, ax = plt.subplots(ncols=1 ,figsize=(6, 6))
+    fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(12, 6))
+
+    err = y_test - y_pred
+    ax1.violinplot(err, positions=None, vert=True, widths=1.0, showmeans=True,
+                   showextrema=True, showmedians=False, quantiles=None, points=100,
+                   bw_method=None, data=None)
+
+    ax1.set_title(f'Error Mean: {np.mean(err):.4f}, Error STD: {np.std(err):.4f}')
 
     max_value = np.array((y_test, y_pred)).max()
 
-    ax.scatter(y_test, y_pred, color='teal', edgecolor='steelblue', alpha=0.5, label="Left Bankline")
-    ax.plot([0, max_value], [0, max_value], '--', color = 'black', linewidth=1.5)
+    ax2.scatter(y_test, y_pred, color='teal', edgecolor='steelblue', alpha=0.5, label="Left Bankline")
+    ax2.plot([0, max_value], [0, max_value], '--', color = 'black', linewidth=1.5)
 
     if model_name is not None:
-        ax.set_title(f'{model_name}')
+        ax2.set_title(f'{model_name}')
 
-    ax.set_xlabel('Depth (GT)', fontsize=16)
-    ax.tick_params(axis='x', labelsize=16)
-    ax.set_xlim(0, max_value)
+    ax2.set_xlabel('Depth (GT)', fontsize=16)
+    ax2.tick_params(axis='x', labelsize=16)
+    ax2.set_xlim(0, max_value)
 
-    ax.set_ylabel('Predicted Depth', fontsize=16)
-    ax.tick_params(axis='y', labelsize=16)
-    ax.set_ylim(0, max_value)
-    ax.grid(True)
+    ax2.set_ylabel('Predicted Depth', fontsize=16)
+    ax2.tick_params(axis='y', labelsize=16)
+    ax2.set_ylim(0, max_value)
+    ax2.grid(True)
 
 
     plt.savefig(f"./{model_name}_scplot.png")
