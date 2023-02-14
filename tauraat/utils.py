@@ -42,6 +42,7 @@ def scatter_plot(y_test, y_pred, model_name=None):
     ax2.set_ylim(0, max_value)
     ax2.grid(True)
 
+    if model_name is not None:
+        plt.savefig(f"./{model_name}_scplot.png")
 
-    plt.savefig(f"./{model_name}_scplot.png")
     plt.show()
