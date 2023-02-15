@@ -1,3 +1,4 @@
+import numbers
 import numpy as np
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 import matplotlib.pyplot as plt
@@ -44,5 +45,44 @@ def scatter_plot(y_test, y_pred, model_name=None):
 
     if model_name is not None:
         plt.savefig(f"./{model_name}_scplot.png")
+
+    plt.show()
+
+def qqplot(y_test, y_pred):
+
+    fig, (ax1, ax2, ax3) = plt.subplots(nrows=1, ncols=3, figsize=(12, 4), dpi=300, constrained_layout=True)
+
+    ax1.boxplot([y_test, y_pred])
+    ax1.set_xticklabels(['GT', 'MODEL'])
+    ax1.tick_params(axis='x', labelrotation=0, labelsize=12)
+    ax1.grid(True)
+    ax1.set_title(f'BOX PLOT')
+
+    x1 = np.sort(y_test)
+    y1 = np.arange(1, len(y_test) + 1) / len(y_test)
+    ax2.plot(x1, y1, linestyle='none', marker='o', alpha=0.2, label='GT')
+    # ax2.plot(x1, y1, linestyle='-', alpha=0.8, label='GT')
+
+    x2 = np.sort(y_pred)
+    y2 = np.arange(1, len(y_pred) + 1) / len(y_pred)
+    # ax1.plot(x2, y2, linestyle='none', marker='.', alpha=0.5, label='GT')
+    ax2.plot(x2, y2, linestyle='-.', alpha=1, label='MODEL')
+
+    ax2.set_title(f'ECDF')
+    ax2.legend()
+
+    quantiles = min(len(y_test), len(y_pred))
+    quantiles = np.linspace(start=0, stop=1, num=int(quantiles))
+
+    x_quantiles = np.quantile(y_test, quantiles, method='nearest')
+    y_quantiles = np.quantile(y_pred, quantiles, method='nearest')
+    ax3.scatter(x_quantiles, y_quantiles)
+
+    max_value = np.array((x_quantiles, y_quantiles)).max()
+    ax3.plot([0, max_value], [0, max_value], '--', color = 'black', linewidth=1.5)
+
+    ax3.set_xlabel('GT')
+    ax3.set_ylabel('MODEL')
+    ax3.set_title(f'Q-Q PLOT')
 
     plt.show()
