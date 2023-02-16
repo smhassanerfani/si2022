@@ -48,7 +48,7 @@ def scatter_plot(y_test, y_pred, model_name=None):
 
     plt.show()
 
-def qqplot(y_test, y_pred):
+def qqplot(y_test, y_pred, quantiles=None):
 
     fig, (ax1, ax2, ax3) = plt.subplots(nrows=1, ncols=3, figsize=(12, 4), dpi=300, constrained_layout=True)
 
@@ -71,7 +71,8 @@ def qqplot(y_test, y_pred):
     ax2.set_title(f'ECDF')
     ax2.legend()
 
-    quantiles = min(len(y_test), len(y_pred))
+    if quantiles is None:
+        quantiles = min(len(y_test), len(y_pred))
     quantiles = np.linspace(start=0, stop=1, num=int(quantiles))
 
     x_quantiles = np.quantile(y_test, quantiles, method='nearest')
