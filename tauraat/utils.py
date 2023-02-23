@@ -4,7 +4,8 @@ from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 import matplotlib.pyplot as plt
 def scatter_plot(y_test, y_pred, model_name=None):
 
-    y_test = y_test.to_numpy().ravel()
+    if type(y_test) is not np.ndarray:
+        y_test = y_test.values()
 
     r2 = np.corrcoef(y_pred, y_test)[0, 1 ]**2
     pbias = 100 * np.sum((y_pred - y_test)) / np.sum(y_test)
