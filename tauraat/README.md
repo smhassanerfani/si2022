@@ -1,7 +1,19 @@
 # TAURAAT: The Attribute table of USGS (Surface-water: Field measurements) for Rivers And Associated Tributaries
 
-## Dataset Description
+## Download Dataset
+TAURAAT-HYDRoSWOT is publicly available in
+[Google Drive](https://drive.google.com/file/d/1DhKbouaWy1t3VQ4BzWvyX0KIpaemFdW7/view?usp=sharing). This dataset 
+borrows `station_nm`, `dec_lat_va`, `dec_long_va`, `site_tp_cd`, `drain_area_va`, `contrib_drain_area_va` features 
+from HYDRoSWOT.
 
+TAURAAT-HYDRoSWOT-NHDPlusV2 is publicly available in 
+[Google Drive](https://drive.google.com/file/d/1X3la64OP8Hpa6dAsqxMmRp0Ym2xJrJ5B/view?usp=share_link). This dataset
+borrows `COMID`, `STATE_CD`, `STATE`, `DASqMi`, `DASqKm`, `LatSite`, `LonSite` as well as `FTYPE`, `StreamOrde`, `SLOPE`
+from NHDPlus_GageLoc and NHDPlus_NHDFlowline_Network respectively. 
+
+For more information check `tauraat.ipynb`.
+
+## Dataset Description
 TAURAAT can be considered as an updated version of 
 [HYDRoSWOT](https://www.sciencebase.gov/catalog/item/57435ae5e4b07e28b660af55) 
 – HYDRoacoustic dataset in support of Surface Water Oceanographic Topography. 
@@ -29,9 +41,6 @@ sites on the map.
     <img width="100%" height="100%" src="https://github.com/smhassanerfani/si2022/blob/main/tauraat/data/excluded_sites.jpg">
     Figure 1. Locations of 31 site stations of HYDRoSWOT which are not included in TAURAAT.
 </p>
-
-TAURAAT is publicly availble in
-[Google Drive](https://drive.google.com/file/d/1DhKbouaWy1t3VQ4BzWvyX0KIpaemFdW7/view?usp=sharing).
 
 ## Dataset Analysis
 After removing zero and missing values of three important columns including `discharge_va`, `gage_height_va`, and
