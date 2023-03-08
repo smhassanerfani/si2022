@@ -11,7 +11,7 @@ TAURAAT-HYDRoSWOT-NHDPlusV2 is publicly available in
 appends `COMID`, `STATE_CD`, `STATE`, `DASqMi`, `DASqKm`, `LatSite`, `LonSite` as well as `FTYPE`, `StreamOrde`, `SLOPE`
 from NHDPlus_GageLoc and NHDPlus_NHDFlowline_Network, respectively, to  TAURAAT-HYDRoSWOT.
 
-For more information check `tauraat.ipynb`.
+For more information check [`tauraat.ipynb`](https://github.com/smhassanerfani/si2022/blob/main/tauraat/tauraat.ipynb).
 
 ## Dataset Description
 TAURAAT can be considered as an updated version of 
