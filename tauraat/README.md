@@ -8,8 +8,8 @@ from HYDRoSWOT.
 
 TAURAAT-HYDRoSWOT-NHDPlusV2 is publicly available in 
 [Google Drive](https://drive.google.com/file/d/1X3la64OP8Hpa6dAsqxMmRp0Ym2xJrJ5B/view?usp=share_link). This dataset
-borrows `COMID`, `STATE_CD`, `STATE`, `DASqMi`, `DASqKm`, `LatSite`, `LonSite` as well as `FTYPE`, `StreamOrde`, `SLOPE`
-from NHDPlus_GageLoc and NHDPlus_NHDFlowline_Network respectively. 
+appends `COMID`, `STATE_CD`, `STATE`, `DASqMi`, `DASqKm`, `LatSite`, `LonSite` as well as `FTYPE`, `StreamOrde`, `SLOPE`
+from NHDPlus_GageLoc and NHDPlus_NHDFlowline_Network, respectively, to  TAURAAT-HYDRoSWOT.
 
 For more information check `tauraat.ipynb`.
 
