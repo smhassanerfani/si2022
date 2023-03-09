@@ -18,7 +18,7 @@ TAURAAT can be considered as an updated version of
 [HYDRoSWOT](https://www.sciencebase.gov/catalog/item/57435ae5e4b07e28b660af55) 
 – HYDRoacoustic dataset in support of Surface Water Oceanographic Topography. 
 TAURAAT includes 10050 site stations (out of 10081 sites represented by HYDRoSWOT), 
-and represents five important channel geometry and characteristics of streamflow (i.e., streamflow, stage, channel 
+and represents five important channel geometry and characteristics of streamflow (i.e., flow rate, stage, channel 
 width, channel area, and channel velocity) collected from the USGS stream gaging station (Surface-water: Field 
 measurements) network and includes 2,802,532 records of all different types of USGS field measurements methods
 (Table 1). The time span of the records starts from `1845-05-05 14:00:00` to `2022-10-24 12:58:01`.
