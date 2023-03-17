@@ -14,20 +14,21 @@ class HYDRoSWOT(Dataset):
 
     def __init__(self, split='train', transform=None):
 
-        train = pd.read_csv('./data/HYDRoSWOT_subset_train.csv', converters={'site_no': str}, low_memory=False)
+        train = pd.read_csv('./data/thalweg_train_set.csv', converters={'site_no': str}, low_memory=False)
 
         # validation split 10% of the total dataset (12.5% of training set)
         splitter = GroupShuffleSplit(test_size=0.125, n_splits=1, random_state=7)
         train_val_split = splitter.split(train, groups=train['site_no'])
         train_idx, val_idx = next(train_val_split)
 
-        X_train = train.drop(columns=['site_no', 'site_tp_cd', 'stream_wdth_va', 'mean_depth_va'])
-        y_train = train[['stream_wdth_va']]
+        X_train = train.drop(columns=['site_no', 'site_tp_cd', 'max_depth_va'])
+        y_train = train[['max_depth_va']]
 
         # Data Transformation
-        X_train['drain_area_va'] = np.log10(X_train['drain_area_va'])
         X_train['q_va'] = np.log10(X_train['q_va'])
+        X_train['stream_wdth_va'] = np.log10(X_train['stream_wdth_va'])
         X_train['xsec_area_va'] = np.log10(X_train['xsec_area_va'])
+        X_train['mean_depth_va'] = np.log10(X_train['mean_depth_va'])
         y_train = np.log10(y_train)
 
         X_scaler = StandardScaler()
@@ -49,14 +50,15 @@ class HYDRoSWOT(Dataset):
 
         else: # i.e., if split == 'test':
 
-            test = pd.read_csv('./data/HYDRoSWOT_subset_test.csv', converters={'site_no': str}, low_memory=False)
+            test = pd.read_csv('./data/thalweg_test_set.csv', converters={'site_no': str}, low_memory=False)
 
-            X_test = test.drop(columns=['site_no', 'site_tp_cd', 'stream_wdth_va', 'mean_depth_va'])
-            y_test = test[['stream_wdth_va']]
+            X_test = test.drop(columns=['site_no', 'site_tp_cd', 'max_depth_va'])
+            y_test = test[['max_depth_va']]
 
-            X_test['drain_area_va'] = np.log10(X_test['drain_area_va'])
             X_test['q_va'] = np.log10(X_test['q_va'])
+            X_test['stream_wdth_va'] = np.log10(X_test['stream_wdth_va'])
             X_test['xsec_area_va'] = np.log10(X_test['xsec_area_va'])
+            X_test['mean_depth_va'] = np.log10(X_test['mean_depth_va'])
 
             self.X = self.X_scaler.transform(X_test).astype('float32')
             self.y = y_test.to_numpy('float32').reshape(-1, 1)
