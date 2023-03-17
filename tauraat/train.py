@@ -30,7 +30,7 @@ def main():
     dataloaders = {x: DataLoader(datasets[x], batch_size=64, shuffle=True, num_workers=2,
                                  pin_memory=True, drop_last=False) for x in ['train', 'val']}
 
-    model = MLP()
+    model = MLP(input_ftrs=4)
     model = model.cuda()
 
     # learning_rate = 2.5e-4
