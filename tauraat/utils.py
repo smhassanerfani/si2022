@@ -4,8 +4,10 @@ from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 import matplotlib.pyplot as plt
 def scatter_plot(y_test, y_pred, xax2_name='GT', yax2_name='MODEL', model_name=None):
 
-    if type(y_test) is not np.ndarray:
-        y_test = y_test.values
+
+    y_test = np.array(y_test).reshape(-1,)
+    y_pred = np.array(y_pred).reshape(-1,)
+    print(f'test size: {y_test.shape}, pred size: {y_pred.shape}')
 
     r2 = np.corrcoef(y_pred, y_test)[0, 1]**2
     pbias = 100 * np.sum((y_pred - y_test)) / np.sum(y_test)
