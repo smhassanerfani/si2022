@@ -94,3 +94,21 @@ def qqplot(y_test, y_pred, quantiles=None):
     ax3.set_title(f'Q-Q PLOT')
 
     plt.show()
+
+def loss_decay_plot(num_epochs, train_loss, val_loss, save_path=None):
+    fig, ax = plt.subplots()
+    ax.plot(range(num_epochs), train_loss, color='g', label="Train")
+    ax.plot(range(num_epochs), val_loss, color='r', label="Val")
+
+    ax.set_xticks(range(0, num_epochs, 5))
+
+    ax.set_xlabel('Epochs')
+    ax.set_ylabel('Loss')
+    plt.title(f'Loss Decay')
+
+    ax.grid(True)
+    ax.legend()
+
+    if save_path is not None:
+        plt.savefig(f"{save_path}/loss_decay.png")
+    plt.show()

@@ -27,7 +27,7 @@ def main():
 
     datasets = {'train': train_set, 'val': val_set}
 
-    dataloaders = {x: DataLoader(datasets[x], batch_size=64, shuffle=True, num_workers=2,
+    dataloaders = {x: DataLoader(datasets[x], batch_size=128, shuffle=True, num_workers=2,
                                  pin_memory=True, drop_last=False) for x in ['train', 'val']}
 
     model = MLP(input_ftrs=4)
@@ -38,13 +38,13 @@ def main():
     # optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate, momentum=0.9, weight_decay=0.01)
     # scheduler = lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.5)
     
-    learning_rate = 7.5e-5
+    learning_rate = 7.5e-6
     criterion = nn.MSELoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, weight_decay=0.001)
     scheduler = lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.8)
 
     # 3) Training loop
-    num_epochs = 30
+    num_epochs = 50
     loss_record = {'train': [], 'val': []}
     since = time.time()
 
@@ -83,7 +83,7 @@ def main():
             epoch_loss = running_loss / len(dataloaders[phase].dataset)
 
             if (epoch + 1) % 1 == 0:
-                print(f'epoch: {epoch + 1}, phase: {phase}, loss: {epoch_loss:.4f}, lr: {lr:.2E}')
+                print(f'epoch: {epoch + 1}\t phase: {phase:8s} loss: {epoch_loss:.4f}\t lr: {lr:.2E}')
                 loss_record[phase].append(epoch_loss)
 
     time_elapsed = time.time() - since
@@ -96,7 +96,8 @@ def main():
         'train_loss': loss_record['train'],
         'val_loss': loss_record['val']
         }
-    torch.save(state, f'{PATH}/model.pth')
+    torch.save(state, f'{PATH}/{time.strftime("%y%m%d-%H%M%S", time.localtime())}.pth')
+    print(f'Model saved in {PATH}/{time.strftime("%y%m%d-%H%M%S", time.localtime())}.pth')
 
     loss_decay_plot(num_epochs, loss_record['train'], loss_record['val'])
 
