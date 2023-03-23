@@ -6,7 +6,7 @@ from dataloader import HYDRoSWOT, ToTensor
 from utils import scatter_plot
 from model import MLP
 
-def main(mode='train'):
+def main(mode='test'):
 
     cudnn.enabled = True
     cudnn.benchmark = True
@@ -27,7 +27,7 @@ def main(mode='train'):
     model = MLP(input_ftrs=4)
     model = model.cuda()
 
-    FILE = f'data/ml_weights/PyTorch/230317-163953.pth'
+    FILE = f'data/ml_weights/PyTorch/230317-160403.pth'
     checkpoint = torch.load(FILE)
     model.load_state_dict(checkpoint['model_state'])
 
