@@ -24,6 +24,8 @@ class HYDRoSWOT(Dataset):
         X_train = train.drop(columns=['site_no', 'site_tp_cd', 'max_depth_va'])
         y_train = train[['max_depth_va']]
 
+        self.predictors = X_train.columns.tolist()
+
         # Data Transformation
         X_train['q_va'] = np.log10(X_train['q_va'])
         X_train['stream_wdth_va'] = np.log10(X_train['stream_wdth_va'])
@@ -79,6 +81,7 @@ class HYDRoSWOT(Dataset):
 
 if __name__ == "__main__":
     dataset = HYDRoSWOT(split='train', transform=ToTensor())
+    print(dataset.predictors)
 
     print(len(dataset))
     dataiter = iter(dataset)
