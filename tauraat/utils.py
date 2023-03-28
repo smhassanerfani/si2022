@@ -2,6 +2,13 @@ import numbers
 import numpy as np
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set(style = 'darkgrid')
+
+plt.rcParams.update({
+    # 'font.sans-serif': 'Comic Sans MS',
+    'font.family': 'serif'
+})
 def scatter_plot(y_test, y_pred, xax2_name='GT', yax2_name='MODEL', model_name=None):
 
 
@@ -14,11 +21,6 @@ def scatter_plot(y_test, y_pred, xax2_name='GT', yax2_name='MODEL', model_name=N
     nse = r2_score(y_test, y_pred)
     mse = mean_squared_error(y_test, y_pred, squared=False)
     print(f'NSE: {nse:.4f}, R2: {r2:.4f}, PBias: {pbias:.4f}, RMSE: {mse:.4f}')
-
-    plt.rcParams.update({
-        # 'font.sans-serif': 'Comic Sans MS',
-        'font.family': 'serif'
-    })
 
     fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(12, 6), constrained_layout=True)
 
@@ -96,7 +98,7 @@ def qqplot(y_test, y_pred, quantiles=None):
     plt.show()
 
 def loss_decay_plot(num_epochs, train_loss, val_loss, save_path=None):
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(constrained_layout=True)
     ax.plot(range(num_epochs), train_loss, color='g', label="Train")
     ax.plot(range(num_epochs), val_loss, color='r', label="Val")
 
@@ -104,13 +106,14 @@ def loss_decay_plot(num_epochs, train_loss, val_loss, save_path=None):
 
     ax.set_xlabel('Epochs')
     ax.set_ylabel('Loss')
-    plt.title(f'Loss Decay')
+    # plt.title(f'Loss Decay')
+    ax.set_xlim(0, num_epochs)
 
     ax.grid(True)
     ax.legend()
 
     if save_path is not None:
-        plt.savefig(f"{save_path}/loss_decay.png")
+        plt.savefig(f"{save_path}/loss_decay.pdf")
     plt.show()
 
 class AdjustLearningRate:
