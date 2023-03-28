@@ -13,21 +13,21 @@ def main(mode='test'):
 
     if mode == 'train':
         dataset = HYDRoSWOT(split='train', transform=ToTensor())
-        dataloader = DataLoader(dataset, batch_size=128, shuffle=True, num_workers=2, pin_memory=True, drop_last=False)
+        dataloader = DataLoader(dataset, batch_size=128, shuffle=False, num_workers=2, pin_memory=True, drop_last=False)
 
     elif mode == 'val':
         dataset = HYDRoSWOT(split='val', transform=ToTensor())
-        dataloader = DataLoader(dataset, batch_size=128, shuffle=True, num_workers=2, pin_memory=True, drop_last=False)
+        dataloader = DataLoader(dataset, batch_size=128, shuffle=False, num_workers=2, pin_memory=True, drop_last=False)
 
     else:
         dataset = HYDRoSWOT(split='test', transform=ToTensor())
-        dataloader = DataLoader(dataset, batch_size=128, shuffle=True, num_workers=2, pin_memory=True, drop_last=False)
+        dataloader = DataLoader(dataset, batch_size=128, shuffle=False, num_workers=2, pin_memory=True, drop_last=False)
 
 
     model = MLP(input_ftrs=4)
     model = model.cuda()
 
-    FILE = f'data/ml_weights/PyTorch/230317-160403.pth'
+    FILE = f'data/ml_weights/PyTorch/230327-211707.pth'
     checkpoint = torch.load(FILE)
     model.load_state_dict(checkpoint['model_state'])
 
@@ -63,7 +63,7 @@ def main(mode='test'):
         y_pr = 10 ** y_pr
 
         print(f'Predictor: {predictor:<15s}',
-              f'NSE: {r2_score(y_gt, y_pr):.4f}'
+              f'NSE: {r2_score(y_gt, y_pr):.4f}\t'
               f'RMSE: {mean_squared_error(y_gt, y_pr, squared=False):.4f}')
 
 
