@@ -8,7 +8,7 @@ import time
 import os
 
 from model import MLP
-from utils import loss_decay_plot
+from utils import loss_decay_plot, AdjustLearningRate
 
 def main():
 
@@ -27,27 +27,30 @@ def main():
 
     datasets = {'train': train_set, 'val': val_set}
 
-    dataloaders = {x: DataLoader(datasets[x], batch_size=128, shuffle=True, num_workers=2,
+    dataloaders = {x: DataLoader(datasets[x], batch_size=256, shuffle=True, num_workers=2,
                                  pin_memory=True, drop_last=False) for x in ['train', 'val']}
 
     model = MLP(input_ftrs=4)
     model = model.cuda()
 
-    # learning_rate = 2.5e-4
+    # learning_rate = 2.5e-5
     # criterion = nn.MSELoss()
     # optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate, momentum=0.9, weight_decay=0.01)
-    # scheduler = lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.5)
+    # scheduler = lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.8)
     
-    learning_rate = 7.5e-6
+    learning_rate = 5.0e-6
     criterion = nn.MSELoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, weight_decay=0.001)
-    scheduler = lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.8)
+    # scheduler = lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.8)
 
     # 3) Training loop
-    num_epochs = 50
+    num_epochs = 100
     loss_record = {'train': [], 'val': []}
-    since = time.time()
 
+    max_iter = num_epochs * len(dataloaders['train'].dataset)
+    scheduler = AdjustLearningRate(optimizer, learning_rate, max_iter, 0.9)
+
+    since = time.time()
     for epoch in range(num_epochs):
 
         for phase in ['train', 'val']:
@@ -74,11 +77,14 @@ def main():
                         loss.backward()
                         optimizer.step()
 
+                        scheduler.num_of_iterations += X.size(0)
+                        lr = scheduler(scheduler.num_of_iterations)
+
                 running_loss += loss.item() * X.size(0)
 
-            if phase == 'train':
-                scheduler.step()
-                lr = optimizer.param_groups[0]['lr']
+            # if phase == 'train':
+                # scheduler.step()
+                # lr = optimizer.param_groups[0]['lr']
 
             epoch_loss = running_loss / len(dataloaders[phase].dataset)
 
