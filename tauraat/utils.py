@@ -57,9 +57,9 @@ def scatter_plot(y_test, y_pred, xax2_name='GT', yax2_name='MODEL', model_name=N
 
     plt.show()
 
-def qqplot(y_test, y_pred, quantiles=None):
+def qqplot(y_test, y_pred, site_name=None, quantiles=None):
 
-    fig, (ax1, ax2, ax3) = plt.subplots(nrows=1, ncols=3, figsize=(12, 4), dpi=300, constrained_layout=True)
+    fig, (ax1, ax2, ax3) = plt.subplots(nrows=1, ncols=3, figsize=(12, 4), constrained_layout=True)
 
     ax1.boxplot([y_test, y_pred])
     ax1.set_xticklabels(['GT', 'MODEL'])
@@ -94,6 +94,9 @@ def qqplot(y_test, y_pred, quantiles=None):
     ax3.set_xlabel('GT')
     ax3.set_ylabel('MODEL')
     ax3.set_title(f'Q-Q PLOT')
+
+    if site_name is not None:
+        plt.savefig(f'./{site_name}.pdf', format='pdf', bbox_inches='tight', pad_inches=0.05)
 
     plt.show()
 
