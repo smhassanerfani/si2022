@@ -57,27 +57,35 @@ def scatter_plot(y_test, y_pred, xax2_name='GT', yax2_name='MODEL', model_name=N
 
     plt.show()
 
-def qqplot(y_test, y_pred, site_name=None, quantiles=None):
+def qqplot(y_test, y_pred, axis_names=None, site_name=None, quantiles=None):
 
     fig, (ax1, ax2, ax3) = plt.subplots(nrows=1, ncols=3, figsize=(12, 4), constrained_layout=True)
 
+    if axis_names is None:
+        y_test_name='GT'
+        y_pred_name='MODEL'
+    else:
+        y_test_name=axis_names[0]
+        y_pred_name=axis_names[1]
+
     ax1.boxplot([y_test, y_pred])
-    ax1.set_xticklabels(['GT', 'MODEL'])
+
+    ax1.set_xticklabels([y_test_name, y_pred_name])
     ax1.tick_params(axis='x', labelrotation=0, labelsize=12)
     ax1.grid(True)
-    ax1.set_title(f'BOX PLOT')
+    # ax1.set_title(f'BOX PLOT')
 
     x1 = np.sort(y_test)
     y1 = np.arange(1, len(y_test) + 1) / len(y_test)
-    ax2.plot(x1, y1, linestyle='none', marker='o', alpha=0.2, label='GT')
+    ax2.plot(x1, y1, linestyle='none', marker='o', alpha=0.2, label=y_test_name)
     # ax2.plot(x1, y1, linestyle='-', alpha=0.8, label='GT')
 
     x2 = np.sort(y_pred)
     y2 = np.arange(1, len(y_pred) + 1) / len(y_pred)
     # ax1.plot(x2, y2, linestyle='none', marker='.', alpha=0.5, label='GT')
-    ax2.plot(x2, y2, linestyle='-.', alpha=1, label='MODEL')
+    ax2.plot(x2, y2, linestyle='-.', alpha=1, label=y_pred_name)
 
-    ax2.set_title(f'ECDF')
+    # ax2.set_title(f'ECDF')
     ax2.legend()
 
     if quantiles is None:
@@ -86,14 +94,16 @@ def qqplot(y_test, y_pred, site_name=None, quantiles=None):
 
     x_quantiles = np.quantile(y_test, quantiles, method='nearest')
     y_quantiles = np.quantile(y_pred, quantiles, method='nearest')
+
     ax3.scatter(x_quantiles, y_quantiles)
+    # ax3.plot([0, 100], [0, 100], '--', color = 'black', linewidth=1.5)
 
     max_value = np.array((x_quantiles, y_quantiles)).max()
     ax3.plot([0, max_value], [0, max_value], '--', color = 'black', linewidth=1.5)
 
-    ax3.set_xlabel('GT')
-    ax3.set_ylabel('MODEL')
-    ax3.set_title(f'Q-Q PLOT')
+    ax3.set_xlabel(y_test_name)
+    ax3.set_ylabel(y_pred_name)
+    # ax3.set_title(f'Q-Q PLOT')
 
     if site_name is not None:
         plt.savefig(f'./{site_name}.pdf', format='pdf', bbox_inches='tight', pad_inches=0.05)
