@@ -58,7 +58,7 @@ def scatter_plot(y_test, y_pred, yax1_name='Depth (m)', xax2_name='GT (m)', yax2
 
     plt.show()
 
-def qqplot(y_test, y_pred, axis_names=None, site_name=None, quantiles=None):
+def qqplot(y_test, y_pred, yax1='Depth (m)' ,axis_names=None, site_name=None, quantiles=None):
 
     fig, (ax1, ax2, ax3) = plt.subplots(nrows=1, ncols=3, figsize=(12, 4), constrained_layout=True)
 
@@ -73,6 +73,7 @@ def qqplot(y_test, y_pred, axis_names=None, site_name=None, quantiles=None):
 
     ax1.set_xticklabels([y_test_name, y_pred_name])
     ax1.tick_params(axis='x', labelrotation=0, labelsize=12)
+    ax1.set_ylabel(yax1)
     ax1.grid(True)
     # ax1.set_title(f'BOX PLOT')
 
