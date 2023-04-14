@@ -9,8 +9,7 @@ plt.rcParams.update({
     # 'font.sans-serif': 'Comic Sans MS',
     'font.family': 'serif'
 })
-def scatter_plot(y_test, y_pred, xax2_name='GT', yax2_name='MODEL', model_name=None):
-
+def scatter_plot(y_test, y_pred, yax1_name='Depth (m)', xax2_name='GT (m)', yax2_name='MODEL (m)', model_name=None):
 
     y_test = np.array(y_test).reshape(-1,)
     y_pred = np.array(y_pred).reshape(-1,)
@@ -22,7 +21,7 @@ def scatter_plot(y_test, y_pred, xax2_name='GT', yax2_name='MODEL', model_name=N
     mse = mean_squared_error(y_test, y_pred, squared=False)
     print(f'NSE: {nse:.4f}, R2: {r2:.4f}, PBias: {pbias:.4f}, RMSE: {mse:.4f}')
 
-    fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(12, 6), constrained_layout=True)
+    fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(11, 5), constrained_layout=True)
 
     # err = (y_test - y_pred)
     # ax1.violinplot(err, positions=None, vert=True, widths=1.0, showmeans=True,
@@ -34,6 +33,7 @@ def scatter_plot(y_test, y_pred, xax2_name='GT', yax2_name='MODEL', model_name=N
     ax1.boxplot([y_test, y_pred])
     ax1.set_xticklabels([xax2_name, yax2_name])
     ax1.tick_params(axis='x', labelrotation=0, labelsize=16)
+    ax1.set_ylabel(f'{yax1_name}', fontsize=16)
     ax1.grid(True)
     # ax1.set_title(f'BOX PLOT')
 
@@ -53,7 +53,8 @@ def scatter_plot(y_test, y_pred, xax2_name='GT', yax2_name='MODEL', model_name=N
 
     if model_name is not None:
         # ax2.set_title(f'{model_name}')
-        plt.savefig(f'./{model_name}_scplot.pdf', format='pdf', bbox_inches='tight', pad_inches=0.1)
+        f = input('What format do you want to save the file: ')
+        plt.savefig(f'./{model_name}_scplot.{f}', format=f'{f}', bbox_inches='tight', pad_inches=0.1)
 
     plt.show()
 
