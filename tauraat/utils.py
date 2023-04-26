@@ -3,13 +3,14 @@ import numpy as np
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 import matplotlib.pyplot as plt
 import seaborn as sns
-sns.set(style = 'darkgrid')
+sns.set(style='darkgrid')
 
 plt.rcParams.update({
     # 'font.sans-serif': 'Comic Sans MS',
     'font.family': 'serif'
 })
-def scatter_plot(y_test, y_pred, yax1_name='Depth (m)', xax2_name='GT (m)', yax2_name='MODEL (m)', model_name=None):
+def scatter_plot(y_test, y_pred, yax1_name='Depth (m)', xax2_name='GT (m)', yax2_name='MODEL (m)', log_mode=False,
+                 model_name=None):
 
     y_test = np.array(y_test).reshape(-1,)
     y_pred = np.array(y_pred).reshape(-1,)
@@ -45,6 +46,10 @@ def scatter_plot(y_test, y_pred, yax1_name='Depth (m)', xax2_name='GT (m)', yax2
     ax2.set_xlabel(f'{xax2_name}', fontsize=16)
     ax2.tick_params(axis='x', labelsize=16)
     # ax2.set_xlim(0, max_value)
+
+    if log_mode:
+        ax2.set_yscale('log')
+        ax2.set_xscale('log')
 
     ax2.set_ylabel(f'{yax2_name}', fontsize=16)
     ax2.tick_params(axis='y', labelsize=16)
