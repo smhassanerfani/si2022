@@ -106,7 +106,7 @@ def qqplot(y_test, y_pred, yax1='Depth (m)' ,axis_names=None, site_name=None, qu
     # ax3.plot([0, 100], [0, 100], '--', color = 'black', linewidth=1.5)
 
     max_value = np.array((x_quantiles, y_quantiles)).max()
-    ax3.plot([0, max_value], [0, max_value], '--', color = 'black', linewidth=1.5)
+    ax3.plot([0, max_value], [0, max_value], '--', color='black', linewidth=1.5)
 
     ax3.set_xlabel(y_test_name)
     ax3.set_ylabel(y_pred_name)
@@ -122,15 +122,17 @@ def loss_decay_plot(num_epochs, train_loss, val_loss, save_path=None):
     ax.plot(range(num_epochs), train_loss, color='g', label="Train")
     ax.plot(range(num_epochs), val_loss, color='r', label="Val")
 
-    ax.set_xticks(range(0, num_epochs, 5))
+    ax.set_xticks(range(0, num_epochs, 10))
+    ax.tick_params(axis='x', labelsize=14)
+    ax.tick_params(axis='y', labelsize=14)
 
-    ax.set_xlabel('Epochs')
-    ax.set_ylabel('Loss')
+    ax.set_xlabel('Epochs', fontsize=16)
+    ax.set_ylabel('Loss', fontsize=16)
     # plt.title(f'Loss Decay')
     ax.set_xlim(0, num_epochs)
 
     ax.grid(True)
-    ax.legend()
+    ax.legend(fontsize=14)
 
     if save_path is not None:
         plt.savefig(f"{save_path}/loss_decay.pdf")
